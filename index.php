@@ -5,18 +5,33 @@ class movie{
   public $title;
   public $duration;
   private $genere;
+  
+  public $advised = 'No advice';
 
-  function __construct($genere)
+  //il metodo construct ne momento in cui viene creata un istanza si esegue automaticamente
+  function __construct($_genere)
   {
-    $this->genere = $genere;
+    $this->genere = $_genere;
+  }
+
+  //in base a cosa viene passato alla funzione  verra cambiato il valore della proprieta advised
+  public function LikedIt($liked){
+    if(strtolower($liked) === 'yes'){
+      $this->advised = 'Recommended';
+    }
+    elseif(strtolower($liked) === 'no'){
+      $this->advised = 'Not recommended';
+    }
   }
   
 }
 
 //creao un instanza della classe movie -> il signore degli anelli
 $signAnelli1= new movie('Fantasy');
+//definiamo le 
 $signAnelli1->title = 'Il signore degli anelli';
 $signAnelli1->duration = '2h 58m';
+$signAnelli1->LikedIt('yes');
 
 var_dump($signAnelli1);
 ?>
