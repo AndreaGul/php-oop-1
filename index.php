@@ -1,4 +1,17 @@
 <?php
+
+//definisco la classe movie
+class movie{
+  public $title;
+  public $duration;
+}
+
+//creao un instanza della classe movie -> il signore degli anelli
+$signAnelli1= new movie();
+$signAnelli1->title = 'il signore degli anelli';
+$signAnelli1->duration = '2h 58m'
+
+
 ?>
 
 
