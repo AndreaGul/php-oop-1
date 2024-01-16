@@ -51,7 +51,11 @@ $signAnelli2= new movie('Il Signore degli Anelli - Le due torri','2h 59m','Fanta
 //chiamiamo la funzione Likedit
 $signAnelli2->LikedIt('yes');
 
+$movies =[
+  $signAnelli1,$signAnelli2
+];
 
+var_dump($movies);
 
 ?>
 
@@ -64,22 +68,17 @@ $signAnelli2->LikedIt('yes');
   <title>OOP 1 movies</title>
 </head>
 <body>
-  <h3>Titolo</h3>
-  <p><?php echo $signAnelli1->title; ?></p>
-   <h3>Durata</h3>
-  <p><?php echo $signAnelli1->duration; ?></p>
-   <h3>Genere</h3>
-  <p><?php echo $signAnelli1->genere; ?></p>
-   <h4><?php echo $signAnelli1->advised; ?></h4>
-  
-  
-   <h3>Titolo</h3>
-  <p><?php echo $signAnelli2->title; ?></p>
-   <h3>Durata</h3>
-  <p><?php echo $signAnelli2->duration; ?></p>
-   <h3>Genere</h3>
-  <p><?php echo $signAnelli2->genere; ?></p>
-   <h4><?php echo $signAnelli2->advised; ?></h4>
-  
+  <?php foreach($movies as $movie): ?>
+      <h3>Titolo</h3>
+        <p><?php echo $movie->title; ?></p>
+      <h3>Durata</h3>
+        <p><?php echo $movie->duration; ?></p>
+      <h3>Genere</h3>
+        <p><?php echo $movie->genere; ?></p>
+
+        <h4><?php echo $movie->advised; ?></h4>
+  <?php endforeach; ?>
+
+
 </body>
 </html>
