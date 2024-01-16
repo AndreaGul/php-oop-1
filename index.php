@@ -4,17 +4,31 @@
 class movie{
   public $title;
   public $duration;
-  private $genere;
+  public $genere;
   
   public $advised = 'No advice';
 
-  //il metodo construct ne momento in cui viene creata un istanza si esegue automaticamente
-  function __construct($_genere)
-  {
+  //il metodo construct ne momento in cui viene creata un istanza si esegue automaticamente  
+  /**
+   * __construct
+   *
+   * @param  string $_genere riceve una stringa con il genere del film
+   * @return void
+   */
+  function __construct($_title,$_duration,$_genere)
+  { 
+    $this->title= $_title;
+    $this->duration = $_duration;
     $this->genere = $_genere;
   }
 
-  //in base a cosa viene passato alla funzione  verra cambiato il valore della proprieta advised
+  //in base a cosa viene passato alla funzione  verra cambiato il valore della proprieta advised  
+  /**
+   * LikedIt
+   *
+   * @param  string $liked in base a se gli viene passo yes o no la funzione fa qualcosa
+   * @return void
+   */
   public function LikedIt($liked){
     if(strtolower($liked) === 'yes'){
       $this->advised = 'Recommended';
@@ -26,14 +40,19 @@ class movie{
   
 }
 
+
+
 //creao un instanza della classe movie -> il signore degli anelli
-$signAnelli1= new movie('Fantasy');
-//definiamo le 
-$signAnelli1->title = 'Il signore degli anelli';
-$signAnelli1->duration = '2h 58m';
+$signAnelli1= new movie('Il signore degli anelli - La Compagnia dell\'Anello','2h 58m','Fantasy');
+//chiamiamo la funzione Likedit
 $signAnelli1->LikedIt('yes');
 
-var_dump($signAnelli1);
+$signAnelli2= new movie('Il Signore degli Anelli - Le due torri','2h 59m','Fantasy');
+//chiamiamo la funzione Likedit
+$signAnelli2->LikedIt('yes');
+
+
+
 ?>
 
 
@@ -45,6 +64,22 @@ var_dump($signAnelli1);
   <title>OOP 1 movies</title>
 </head>
 <body>
+  <h3>Titolo</h3>
+  <p><?php echo $signAnelli1->title; ?></p>
+   <h3>Durata</h3>
+  <p><?php echo $signAnelli1->duration; ?></p>
+   <h3>Genere</h3>
+  <p><?php echo $signAnelli1->genere; ?></p>
+   <h4><?php echo $signAnelli1->advised; ?></h4>
+  
+  
+   <h3>Titolo</h3>
+  <p><?php echo $signAnelli2->title; ?></p>
+   <h3>Durata</h3>
+  <p><?php echo $signAnelli2->duration; ?></p>
+   <h3>Genere</h3>
+  <p><?php echo $signAnelli2->genere; ?></p>
+   <h4><?php echo $signAnelli2->advised; ?></h4>
   
 </body>
 </html>
